@@ -29,6 +29,7 @@ export default function UrlShortener() {
       const data = await res.json();
 
       if (res.ok) {
+        console.log(data);
         setShortUrl(data.shortCode || data.shortUrl);
       } else {
         console.error(data);
