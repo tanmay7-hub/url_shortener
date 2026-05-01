@@ -14,7 +14,7 @@ export default function UrlShortener() {
 
     try {
       setLoading(true);
-      const API = import.meta.env.BACKEND_URL
+      const API = import.meta.env.VITE_BACKEND_URL
       const res = await fetch(`${API}/shorten`, {
         method: "POST",
         headers: {
@@ -54,7 +54,7 @@ export default function UrlShortener() {
     const code = redirectCode.includes("http")
       ? redirectCode.split("/").pop()
       : redirectCode;
-    const API = import.meta.env.BACKEND_URL;
+    const API = import.meta.env.VITE_BACKEND_URL;
     window.location.href = `${API}/${code}`;
   };
 
