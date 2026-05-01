@@ -31,7 +31,7 @@ export const createShortUrl = async(req,res)=>{
                 newUrl.shortCode=shortCode;
                 await client.set(shortCode,OriginalUrl,"EX",3600);
                 await newUrl.save();
-                return res.status(200).json({shortCode:`${process.env.BACKEND_URL}/${newUrl.shortCode}`});
+                return res.status(200).json({shortCode:`${newUrl.shortCode}`});
              }
              
              const newUrl= await Url.create({
@@ -39,7 +39,7 @@ export const createShortUrl = async(req,res)=>{
                   OriginalUrl
              });
               await client.set(shortCode,OriginalUrl,"EX",3600);
-              return res.status(200).json({shortCode:`${process.env.BACKEND_URL}/${newUrl.shortCode}`});
+              return res.status(200).json({shortCode:`${newUrl.shortCode}`});
        }catch(err){
            console.log(err.message);
            res.status(500).json({message:"error at creating short url in controller",errMsg:err});
