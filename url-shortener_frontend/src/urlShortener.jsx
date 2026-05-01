@@ -48,6 +48,7 @@ export default function UrlShortener() {
   };
 
   const handleRedirect = () => {
+    console.log("API_BASE:", import.meta.env.VITE_API_BASE);
     if (!redirectCode) return alert("Enter short code");
 
     const code = redirectCode.includes("http")
