@@ -53,8 +53,8 @@ export default function UrlShortener() {
     const code = redirectCode.includes("http")
       ? redirectCode.split("/").pop()
       : redirectCode;
-
-    window.location.href = `http://localhost:8080/${code}`;
+    const API = import.meta.env.BACKEND_URL;
+    window.location.href = `${API}/${code}`;
   };
 
   return (
