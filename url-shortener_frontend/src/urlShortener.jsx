@@ -88,7 +88,7 @@ export default function UrlShortener() {
         <div className="result">
           <p>
             Short URL:{" "}
-            <a href={shortUrl} target="_blank" rel="noreferrer" className="link">
+            <a href={`${import.meta.env.VITE_BACKEND_URL}/${shortUrl}`} target="_blank" rel="noreferrer" className="link">
               {shortUrl}
             </a>
           </p>
